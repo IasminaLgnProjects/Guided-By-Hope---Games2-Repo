@@ -106,7 +106,9 @@ public class TPSController : MonoBehaviour
         Vector3 move = (transform.right * horzAxis) + (transform.forward * vertAxis);
         controller.Move(move * moveSpeed * Time.deltaTime);
 
+        animator.SetBool("walkingBackTrigger", Input.GetKey(KeyCode.S));
         animator.SetBool("walkingTrigger", Input.GetKey(KeyCode.W));
+        
         //animator.SetBool("throwTrigger", Input.GetKey(KeyCode.E));
     }
 }

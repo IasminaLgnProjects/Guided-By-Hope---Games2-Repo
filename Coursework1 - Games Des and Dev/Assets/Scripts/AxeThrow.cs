@@ -65,6 +65,7 @@ public class AxeThrow : MonoBehaviour
     {
         //isReturning = false;
         rbAxeTransform.parent = hand.transform;
+        //rbAxeTransform.rotation = hand.transform.rotation;
 
         //Set Rotation
 

@@ -53,18 +53,18 @@
     <UnityVersion>2020.3.25f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Witch\WitchPatrol.cs" />
-    <Compile Include="Assets\Scripts\Witch\WitchAnim.cs" />
-    <Compile Include="Assets\Scripts\AxeThrow.cs" />
-    <Compile Include="Assets\Scripts\PotionThrowOLD.cs" />
-    <Compile Include="Assets\Scripts\AxeScript.cs" />
-    <Compile Include="Assets\Scripts\TPSController.cs" />
-    <Compile Include="Assets\Scripts\Witch\Potion.cs" />
-    <Compile Include="Assets\Scripts\SoundManager.cs" />
-    <Compile Include="Assets\Scripts\Damageable.cs" />
     <Compile Include="Assets\Scripts\PlayerHealth.cs" />
     <Compile Include="Assets\Scripts\HealthCanvas.cs" />
+    <Compile Include="Assets\Scripts\Witch\WitchPatrol.cs" />
+    <Compile Include="Assets\Scripts\Witch\WitchAnim.cs" />
+    <Compile Include="Assets\Scripts\SoundManager.cs" />
+    <Compile Include="Assets\Scripts\Witch\Potion.cs" />
+    <Compile Include="Assets\Scripts\AxeThrow.cs" />
     <Compile Include="Assets\Scripts\Witch\PotionThrow.cs" />
+    <Compile Include="Assets\Scripts\PotionThrowOLD.cs" />
+    <Compile Include="Assets\Scripts\Damageable.cs" />
+    <Compile Include="Assets\Scripts\AxeScript.cs" />
+    <Compile Include="Assets\Scripts\TPSController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

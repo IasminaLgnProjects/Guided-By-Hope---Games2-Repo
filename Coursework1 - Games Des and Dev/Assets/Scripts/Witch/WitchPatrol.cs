@@ -30,6 +30,7 @@ public class WitchPatrol : MonoBehaviour
         {
             //stop moving
             anim.SetBool("Throwing", true);
+
         }
     }
 
@@ -37,4 +38,15 @@ public class WitchPatrol : MonoBehaviour
     {
         NMAgent.SetDestination(waypoints[0].transform.position);
     }
+
+    public void Throw()
+    {
+        //rbAxe.transform.parent = null;
+        //rbAxe.isKinematic = false;
+        //rbAxe.AddForce(Camera.main.transform.TransformDirection(Vector3.forward) * power, ForceMode.Impulse);
+        //rbAxe.AddTorque(rbAxe.transform.TransformDirection(Vector3.right) * 300, ForceMode.Impulse);
+
+        //isReturning = false;
+    }
+
 }
