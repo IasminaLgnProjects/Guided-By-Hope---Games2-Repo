@@ -22,8 +22,8 @@ public class AxeScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        print(collision.gameObject.name);
-        print("Collided");
+        //print(collision.gameObject.name);
+        //print("Collided");
         if (collision.gameObject.tag == "Witch")
         {
             print("witch hit");

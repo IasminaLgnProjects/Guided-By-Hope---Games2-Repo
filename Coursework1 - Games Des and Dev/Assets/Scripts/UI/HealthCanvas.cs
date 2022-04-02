@@ -22,6 +22,6 @@ public class HealthCanvas : MonoBehaviour
     private void LateUpdate() //late update because the player takes damage in Update
     {
         slider.value = playerHealthScript.GetPlayerHealth();
-        print("Slider value is " + slider.value);
+        //print("Slider value is " + slider.value);
     }
 }

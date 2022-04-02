@@ -20,7 +20,7 @@ public class WitchPatrol : MonoBehaviour
     float scanSpeed = 150f;
     float maxScanAngle = 45f;
     
-    bool throwPotion;
+    private bool throwPotion; 
     public bool getThrowPotion
     { get 
         {
@@ -74,7 +74,7 @@ public class WitchPatrol : MonoBehaviour
         RaycastHit hit;
         if(Physics.Raycast(transform.position + new Vector3(0, 1f, 0), raycastDirection, out hit, sightDistance) && hit.collider.tag == "Player") //+ Vector3 because the raycast was at the feet
         {
-            Debug.Log("player found");
+            //Debug.Log("player found");
             Debug.DrawRay(transform.position + new Vector3(0, 1f, 0), raycastDirection, Color.red);
 
             throwPotion = true;

@@ -16,7 +16,7 @@ public class Potion : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        print(collision.gameObject.name);
+        //print(collision.gameObject.name);
         if(collision.gameObject.tag == "Player")
         {
             print("player hit");
