@@ -19,8 +19,8 @@ public class WitchPatrol : MonoBehaviour
     float currentSightAngle = 0f;
     float scanSpeed = 150f;
     float maxScanAngle = 45f;
+    
     bool throwPotion;
-
     public bool getThrowPotion
     { get 
         {

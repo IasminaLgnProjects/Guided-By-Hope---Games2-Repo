@@ -19,6 +19,7 @@ public class Potion : MonoBehaviour
         print(collision.gameObject.name);
         if(collision.gameObject.tag == "Player")
         {
+            print("player hit");
             PlayerHealthScript = collision.GetComponent<PlayerHealth>();
             if (PlayerHealthScript != null)
             {
