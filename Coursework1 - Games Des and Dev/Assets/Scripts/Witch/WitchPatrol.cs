@@ -9,8 +9,8 @@ public class WitchPatrol : MonoBehaviour
     NavMeshAgent NMAgent;
     Animator anim;
 
-    [SerializeField] float speed = 1f;
-    float reachTargetRange = 2f;
+    [SerializeField] float speed;
+    [SerializeField] float reachTargetRange;
     [SerializeField] int currentWaypoint = 0;
 
 
@@ -40,9 +40,8 @@ public class WitchPatrol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GoToWaypoint();
-
-        anim.SetFloat("MoveSpeed", NMAgent.velocity.magnitude*-2);
+        //print("NMAgent.remainingDistance is " + NMAgent.remainingDistance);
+        anim.SetFloat("MoveSpeed", NMAgent.velocity.magnitude * -2);
 
         if(NMAgent.remainingDistance < reachTargetRange)
         {
@@ -50,12 +49,12 @@ public class WitchPatrol : MonoBehaviour
         }
 
         ScanForPlayer();
-
     }
 
     void GoToWaypoint()
     {
         currentWaypoint++;
+        //print(currentWaypoint);
         if(currentWaypoint >= waypoints.Length)
         {
             currentWaypoint = 0;
@@ -86,15 +85,4 @@ public class WitchPatrol : MonoBehaviour
             throwPotion = false;
         }
     }
-
-    public void Throw()
-    {
-        //rbAxe.transform.parent = null;
-        //rbAxe.isKinematic = false;
-        //rbAxe.AddForce(Camera.main.transform.TransformDirection(Vector3.forward) * power, ForceMode.Impulse);
-        //rbAxe.AddTorque(rbAxe.transform.TransformDirection(Vector3.right) * 300, ForceMode.Impulse);
-
-        //isReturning = false;
-    }
-
 }
