@@ -17,7 +17,7 @@ public class Damageable : MonoBehaviour
         health = health - damageAmount;
         if (health <= 0)
         {
-            PlaySound();
+            //PlaySound();
             Destroy(gameObject);
         }
     }

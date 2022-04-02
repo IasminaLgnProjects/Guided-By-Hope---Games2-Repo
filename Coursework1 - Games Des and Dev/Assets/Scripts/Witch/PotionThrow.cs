@@ -65,7 +65,7 @@ public class PotionThrow : MonoBehaviour
 
 
             anim.SetBool("Throwing", true);
-            Invoke("FireWeapon", 0.5f);
+            Invoke("FireWeapon", 1.7f); //0.5 old animation
         }
         else
         {
