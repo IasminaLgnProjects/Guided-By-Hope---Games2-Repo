@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\Damageable.cs" />
     <Compile Include="Assets\Scripts\AxeScript.cs" />
     <Compile Include="Assets\Scripts\TPSController.cs" />
+    <Compile Include="Assets\Scripts\Entrance\PlayerFalling.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
