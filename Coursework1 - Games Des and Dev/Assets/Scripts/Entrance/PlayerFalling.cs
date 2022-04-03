@@ -18,6 +18,7 @@ public class PlayerFalling : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //ragdoll activate
         if (Input.GetKey(KeyCode.O))
         {
             print("O pressed");
@@ -26,11 +27,18 @@ public class PlayerFalling : MonoBehaviour
             playerController.enabled = false;
         }
 
+        //ragdoll deactivate
         if (Input.GetKey(KeyCode.P))
         {
             print("P pressed");
             playerAnimator.enabled = true;
             playerController.enabled = true;
+        }
+
+        //teleport
+        if (Input.GetKey(KeyCode.T))
+        {
+            gameObject.transform.position = new Vector3(-784, -59, 278);
         }
     }
 }
