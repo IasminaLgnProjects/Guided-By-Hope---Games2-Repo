@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Hand
   - Witch
+  - Fall
+  - Relocate
   layers:
   - Default
   - TransparentFX

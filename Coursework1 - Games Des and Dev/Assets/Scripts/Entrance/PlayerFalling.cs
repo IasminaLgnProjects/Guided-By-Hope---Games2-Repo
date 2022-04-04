@@ -7,7 +7,9 @@ public class PlayerFalling : MonoBehaviour
     Animator playerAnimator;
     [SerializeField] GameObject axe;
     TPSController playerController;
-    // Start is called before the first frame update
+    private bool playerFell;
+
+
     void Start()
     {
         playerAnimator = gameObject.GetComponent<Animator>();
@@ -15,30 +17,58 @@ public class PlayerFalling : MonoBehaviour
         axe = GameObject.Find("Axe1");
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator MyCoroutine()
     {
-        //ragdoll activate
-        if (Input.GetKey(KeyCode.O))
+        while (true)
         {
-            print("O pressed");
-            playerAnimator.enabled = false;
-            axe.GetComponent<BoxCollider>().enabled = false;
-            playerController.enabled = false;
-        }
+            if (playerFell)
+            {
+                DeactivateAnimator();
 
-        //ragdoll deactivate
-        if (Input.GetKey(KeyCode.P))
-        {
-            print("P pressed");
-            playerAnimator.enabled = true;
-            playerController.enabled = true;
-        }
+                yield return new WaitForSeconds(8f); //wait for the player to fall
 
-        //teleport
-        if (Input.GetKey(KeyCode.T))
-        {
-            gameObject.transform.position = new Vector3(-784, -59, 278);
+                ActivateAnimator();
+                ChangeLocation();
+
+                playerFell = false;
+            }
+            else
+            {
+                break;
+            }
+            yield return null;
         }
+    }
+
+
+    void OnTriggerEnter(Collider other)
+    {
+        print("trigger");
+        if(other.gameObject.tag == "Fall")
+        {
+            print("player1");
+            playerFell = true;
+            StartCoroutine(MyCoroutine());
+        }
+    }
+
+    void DeactivateAnimator()
+    {
+        print("Ragdoll deac");
+        playerAnimator.enabled = false;
+        axe.GetComponent<BoxCollider>().enabled = false;
+        playerController.enabled = false;
+    }
+
+    void ActivateAnimator()
+    {
+        print("P pressed");
+        playerAnimator.enabled = true;
+        playerController.enabled = true;
+    }
+
+    void ChangeLocation()
+    {
+        gameObject.transform.position = new Vector3(-784, -59, 278);
     }
 }
