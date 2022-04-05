@@ -38,10 +38,11 @@ public class PlayerFalling : MonoBehaviour
                 DeactivateAnimator();
                 ActivateFallingCamera();
 
-                yield return new WaitForSeconds(8f); //wait for the player to fall
+                yield return new WaitForSeconds(10f); //wait for the player to fall
 
                 ActivateAnimator();
                 ChangeLocation();
+                DeactivateFallingCamera();
 
                 playerFell = false;
             }
@@ -91,4 +92,9 @@ public class PlayerFalling : MonoBehaviour
         gameObject.transform.position = new Vector3(-784, -59, 278);
     }
 
+    void DeactivateFallingCamera()
+    {
+        fallingCamera.enabled = false;
+        cameraMoving = false;
+    }
 }
