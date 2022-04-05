@@ -9,12 +9,24 @@ public class PlayerFalling : MonoBehaviour
     TPSController playerController;
     private bool playerFell;
 
+    [SerializeField] Camera fallingCamera;
+
+    private bool cameraMoving;
+    public bool getCameraMoving
+    {
+        get
+        {
+            return cameraMoving;
+        }
+    }
 
     void Start()
     {
         playerAnimator = gameObject.GetComponent<Animator>();
         playerController = gameObject.GetComponent<TPSController>();
         axe = GameObject.Find("Axe1");
+
+        fallingCamera.enabled = false;
     }
 
     IEnumerator MyCoroutine()
@@ -24,6 +36,7 @@ public class PlayerFalling : MonoBehaviour
             if (playerFell)
             {
                 DeactivateAnimator();
+                ActivateFallingCamera();
 
                 yield return new WaitForSeconds(8f); //wait for the player to fall
 
@@ -60,6 +73,12 @@ public class PlayerFalling : MonoBehaviour
         playerController.enabled = false;
     }
 
+    void ActivateFallingCamera()
+    {
+        fallingCamera.enabled = true;
+        cameraMoving = true;
+    }
+
     void ActivateAnimator()
     {
         print("P pressed");
@@ -71,4 +90,5 @@ public class PlayerFalling : MonoBehaviour
     {
         gameObject.transform.position = new Vector3(-784, -59, 278);
     }
+
 }
