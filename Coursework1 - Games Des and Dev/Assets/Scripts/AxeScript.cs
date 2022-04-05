@@ -7,19 +7,16 @@ public class AxeScript : MonoBehaviour
     [SerializeField] int damageAmount = 100;
     Damageable DamageableScript;
     [SerializeField] GameObject SoundManager;
+    //[SerializeField] ColliderDetector ColliderDetectorScript;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        SoundManager = GameObject.Find("TheSoundManager");
+        //SoundManager = GameObject.Find("TheSoundManager");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    /*
     private void OnCollisionEnter(Collision collision)
     {
         //print(collision.gameObject.name);
@@ -37,5 +34,5 @@ public class AxeScript : MonoBehaviour
             }
             //Destroy(gameObject);
         }
-    }
+    }*/
 }

@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\PlayerHealth.cs" />
     <Compile Include="Assets\Scripts\UI\HealthCanvas.cs" />
+    <Compile Include="Assets\Scripts\Entrance\CameraFallMovement.cs" />
     <Compile Include="Assets\Scripts\Witch\WitchPatrol.cs" />
     <Compile Include="Assets\Scripts\Witch\WitchAnim.cs" />
     <Compile Include="Assets\Scripts\UI\MenuScript.cs" />
@@ -70,7 +71,7 @@
     <Compile Include="Assets\Scripts\Entrance\PlayerFalling.cs" />
     <Compile Include="Assets\Scripts\AxeScript.cs" />
     <Compile Include="Assets\Scripts\TPSController.cs" />
-    <Compile Include="Assets\Scripts\Entrance\CameraFallMovement.cs" />
+    <Compile Include="Assets\Scripts\ColliderDetector.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

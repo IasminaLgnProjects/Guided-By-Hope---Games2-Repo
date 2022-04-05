@@ -8,6 +8,7 @@ TagManager:
   - Witch
   - Fall
   - Relocate
+  - Axe
   layers:
   - Default
   - TransparentFX
