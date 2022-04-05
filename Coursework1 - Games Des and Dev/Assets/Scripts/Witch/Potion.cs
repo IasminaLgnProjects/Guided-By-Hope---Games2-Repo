@@ -7,11 +7,13 @@ public class Potion : MonoBehaviour
     [SerializeField] int damageAmount;
     Damageable DamageableScript; //you might want this to be the PLAYER HEALTH 
     PlayerHealth PlayerHealthScript;
-    [SerializeField] GameObject SoundManager;
+    //[SerializeField] GameObject SoundManager; //delete serial
+    [SerializeField] SoundManager SoundManagerScript; //delete serial
 
     void Start()
     {
-        SoundManager = GameObject.Find("TheSoundManager");
+        //SoundManager = GameObject.Find("TheSoundManager");
+        SoundManagerScript = GameObject.Find("TheSoundManager").GetComponent<SoundManager>();
     }
 
     void OnTriggerEnter(Collider collision)
@@ -23,12 +25,17 @@ public class Potion : MonoBehaviour
             PlayerHealthScript = collision.GetComponent<PlayerHealth>();
             if (PlayerHealthScript != null)
             {
-                SoundManager.GetComponent<SoundManager>().AudioPotionBreak(); //this is actually for the AXE HIT
+                //SoundManager.GetComponent<SoundManager>().AudioPotionBreak(); //this is actually for the AXE HIT
+                SoundManagerScript.AudioPotionBreak(); 
                 PlayerHealthScript.TakeDamage(damageAmount);
                 
                 //DamageableScript.DealDamage(damageAmount);
             }
-            //Destroy(gameObject);
+            Destroy(gameObject);
+        }
+        else
+        {
+            //Invoke Destroy after few seconds !!!!!!
         }
     }
 }

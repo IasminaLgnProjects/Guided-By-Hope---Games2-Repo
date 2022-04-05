@@ -6,38 +6,49 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] public GameObject pausePanel;
-    public static GameObject gameOverPanel;
-    public static GameObject winPanel;
+    [SerializeField] public GameObject gameOverPanel;
+    [SerializeField] public GameObject winPanel;
     public bool paused;
     public static bool playerAlive;
 
     void Start()
     {
-        pausePanel.SetActive(false);
         Time.timeScale = 1f;
         paused = false;
-    }
 
-    void Update()
-    {
         if (pausePanel == null)
         {
             pausePanel = GameObject.Find("PausePanel");
             pausePanel.SetActive(false);
         }
+        else
+        {
+            pausePanel.SetActive(false);
+        }
 
         if (gameOverPanel == null)
         {
-            //gameOverPanel = GameObject.Find("GameOver");
-            //gameOverPanel.SetActive(false);
+            gameOverPanel = GameObject.Find("GameOverPanel");
+            gameOverPanel.SetActive(false);
+        }
+        else
+        {
+            gameOverPanel.SetActive(false);
         }
 
         if (winPanel == null)
         {
-            //winPanel = GameObject.Find("YouWin");
-            //winPanel.SetActive(false);
+            winPanel = GameObject.Find("WinPanel");
+            winPanel.SetActive(false);
         }
+        else
+        {
+            winPanel.SetActive(false);
+        }
+    }
 
+    void Update()
+    {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             print("esc");
@@ -51,10 +62,10 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if(!playerAlive)
+        /*if(!playerAlive)
         {
-            //ShowGameOverPanel();
-        }
+            ShowGameOverPanel();
+        }*/
 
         //if has Stone or similar { ShowWinPanel();}
     }
@@ -75,13 +86,13 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-    public static void ShowGameOverPanel()
+    public void ShowGameOverPanel()
     {
         gameOverPanel.SetActive(true);
         Time.timeScale = 0f;
     }
 
-    public static void ShowWinPanel()
+    public void ShowWinPanel()
     {
         winPanel.SetActive(true);
         Time.timeScale = 0f;

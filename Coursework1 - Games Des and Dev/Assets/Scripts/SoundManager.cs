@@ -9,11 +9,11 @@ public class SoundManager : MonoBehaviour
     //[SerializeField] AudioClip gameOver;
 
 
-    //[SerializeField] AudioClip playerDeath;
+    [SerializeField] AudioClip playerDeath;
     //[SerializeField] AudioClip playerHit;
 
     //[SerializeField] AudioClip witchAttack;
-    //[SerializeField] AudioClip witchDeath;
+    [SerializeField] AudioClip witchDeath;
     //[SerializeField] AudioClip witchThrow;
 
     [SerializeField] AudioClip potionBreak;
@@ -36,7 +36,7 @@ public class SoundManager : MonoBehaviour
     }
     public void AudioPlayerDeath()
     {
-        //audioSource.PlayOneShot(playerDeath, defaultSoundLevel);
+        audioSource.PlayOneShot(playerDeath, defaultSoundLevel);
     }
     public void AudioWitchAttack()
     {
@@ -44,7 +44,7 @@ public class SoundManager : MonoBehaviour
     }
     public void AudioWitchDeath()
     {
-       // audioSource.PlayOneShot(witchDeath, defaultSoundLevel);
+        audioSource.PlayOneShot(witchDeath, defaultSoundLevel);
     }
     public void AudioPotionBreak()
     {

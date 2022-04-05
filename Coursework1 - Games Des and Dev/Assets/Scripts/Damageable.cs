@@ -5,19 +5,18 @@ using UnityEngine;
 public class Damageable : MonoBehaviour
 {
     [SerializeField] float health;
-    [SerializeField] SoundManager SoundManagerScript;
+    [SerializeField] SoundManager SoundManagerScript; //delete serial
 
     void Start()
     {
-        //SoundManagerScript = SoundManagerObject.GetComponent<TheSoundEffectsManager>();
-
+        SoundManagerScript = GameObject.Find("TheSoundManager").GetComponent<SoundManager>();
     }
     public void DealDamage(float damageAmount)
     {
         health = health - damageAmount;
         if (health <= 0)
         {
-            //PlaySound();
+            PlaySound();
             Destroy(gameObject);
         }
     }
@@ -28,9 +27,9 @@ public class Damageable : MonoBehaviour
         {
             SoundManagerScript.AudioWitchDeath();
         }
-        else if (gameObject.tag == "Troll")
+        /*else if (gameObject.tag == "Troll")
         {
             SoundManagerScript.AudioTrollDeath();
-        }
+        }*/
     }
 }

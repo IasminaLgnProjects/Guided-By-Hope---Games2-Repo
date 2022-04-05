@@ -34,6 +34,10 @@ public class AxeThrow : MonoBehaviour
             Invoke("Throw", 0.60f); //delay to line with the animation
             hasAxe = false;
         }
+        else
+        {
+            animator.SetBool("throwTrigger", false);
+        }
 
         if (Input.GetKey(KeyCode.R) && hasAxe == false)
         {
@@ -41,6 +45,10 @@ public class AxeThrow : MonoBehaviour
             Invoke("Return", 0.60f);
             ResetAxe();
             hasAxe = true;
+        }
+        else
+        {
+            animator.SetBool("catchTrigger", false);
         }
     }
 

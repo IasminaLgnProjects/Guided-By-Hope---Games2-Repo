@@ -66,7 +66,7 @@ public class PlayerFalling : MonoBehaviour
         }
     }
 
-    void DeactivateAnimator()
+    public void DeactivateAnimator()
     {
         print("Ragdoll deac");
         playerAnimator.enabled = false;
