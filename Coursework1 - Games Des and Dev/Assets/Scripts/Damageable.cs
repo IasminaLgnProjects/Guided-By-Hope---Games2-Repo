@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Damageable : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class Damageable : MonoBehaviour
     WitchPatrol WitchPatrolScript;
     Animator witchAnimator;
     Collider witchCollider;
+    NavMeshAgent witchNMAgent;
+
 
     [SerializeField] ColliderDetector ColliderDetectorScript;
 
@@ -18,6 +21,7 @@ public class Damageable : MonoBehaviour
         WitchPatrolScript = gameObject.GetComponent<WitchPatrol>();
         witchAnimator = gameObject.GetComponent<Animator>();
         witchCollider = gameObject.GetComponent<Collider>();
+        witchNMAgent = gameObject.GetComponent<NavMeshAgent>();
         
         StartCoroutine(MyCoroutine());
     }
@@ -67,5 +71,6 @@ public class Damageable : MonoBehaviour
         witchCollider.enabled = false;
         witchAnimator.enabled = false;
         WitchPatrolScript.enabled = false;
+        witchNMAgent.enabled = false;
     }
 }
