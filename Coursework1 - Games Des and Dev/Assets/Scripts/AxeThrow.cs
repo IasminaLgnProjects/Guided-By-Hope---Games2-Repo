@@ -28,7 +28,7 @@ public class AxeThrow : MonoBehaviour
         
         animator.SetBool("throwTrigger", false);
 
-        if (Input.GetKey(KeyCode.E) && hasAxe == true)
+        if (Input.GetKey(KeyCode.Mouse0) && hasAxe == true)
         {
             animator.SetBool("throwTrigger", true);
             Invoke("Throw", 0.60f); //delay to line with the animation
@@ -39,7 +39,7 @@ public class AxeThrow : MonoBehaviour
             animator.SetBool("throwTrigger", false);
         }
 
-        if (Input.GetKey(KeyCode.R) && hasAxe == false)
+        if (Input.GetKey(KeyCode.Mouse1) && hasAxe == false)
         {
             animator.SetBool("catchTrigger", true);
             Invoke("Return", 0.60f);

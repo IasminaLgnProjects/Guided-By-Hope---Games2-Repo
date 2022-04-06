@@ -57,10 +57,8 @@ public class PlayerFalling : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        print("trigger");
         if(other.gameObject.tag == "Fall")
         {
-            print("player1");
             playerFell = true;
             StartCoroutine(MyCoroutine());
         }
@@ -68,7 +66,6 @@ public class PlayerFalling : MonoBehaviour
 
     public void DeactivateAnimator()
     {
-        print("Ragdoll deac");
         playerAnimator.enabled = false;
         axe.GetComponent<BoxCollider>().enabled = false;
         playerController.enabled = false;
@@ -82,7 +79,6 @@ public class PlayerFalling : MonoBehaviour
 
     void ActivateAnimator()
     {
-        print("P pressed");
         playerAnimator.enabled = true;
         playerController.enabled = true;
     }
