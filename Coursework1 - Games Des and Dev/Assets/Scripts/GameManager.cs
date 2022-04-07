@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = false;
+
         Time.timeScale = 1f;
         paused = false;
 
@@ -67,6 +69,7 @@ public class GameManager : MonoBehaviour
         paused = false;
         pausePanel.SetActive(false);
         Time.timeScale = 1f;
+        Cursor.visible = false;
     }
 
     public void Pause()
@@ -74,17 +77,20 @@ public class GameManager : MonoBehaviour
         paused = true;
         pausePanel.SetActive(true);
         Time.timeScale = 0f;
+        Cursor.visible = true;
     }
 
     public void ShowGameOverPanel()
     {
         gameOverPanel.SetActive(true);
         Time.timeScale = 0f;
+        Cursor.visible = true;
     }
 
     public void ShowWinPanel()
     {
         winPanel.SetActive(true);
         Time.timeScale = 0f;
+        Cursor.visible = true;
     }
 }

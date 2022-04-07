@@ -20,7 +20,7 @@ public class TPSController : MonoBehaviour
     float rotationX = 0f;
     float rotationY = 0f;
     Vector3 velocity;
-    float moveSpeed = 10f;
+    float moveSpeed = 5f;
     float jumpHeight = 0.5f;
     float gravity = -9.81f; 
     float grounDistance = 0.3f;
