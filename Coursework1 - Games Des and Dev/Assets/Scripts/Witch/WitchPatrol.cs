@@ -37,10 +37,8 @@ public class WitchPatrol : MonoBehaviour
         GoToWaypoint();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //print("NMAgent.remainingDistance is " + NMAgent.remainingDistance);
         anim.SetFloat("MoveSpeed", NMAgent.velocity.magnitude * -2);
 
         if(NMAgent.remainingDistance < reachTargetRange)
@@ -54,7 +52,6 @@ public class WitchPatrol : MonoBehaviour
     void GoToWaypoint()
     {
         currentWaypoint++;
-        //print(currentWaypoint);
         if(currentWaypoint >= waypoints.Length)
         {
             currentWaypoint = 0;
@@ -73,7 +70,6 @@ public class WitchPatrol : MonoBehaviour
         RaycastHit hit;
         if(Physics.Raycast(transform.position + new Vector3(0, 1f, 0), raycastDirection, out hit, sightDistance) && hit.collider.tag == "Player") //+ Vector3 because the raycast was at the feet
         {
-            //Debug.Log("player found");
             Debug.DrawRay(transform.position + new Vector3(0, 1f, 0), raycastDirection, Color.red);
 
             throwPotion = true;

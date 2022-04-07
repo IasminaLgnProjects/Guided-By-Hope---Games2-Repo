@@ -51,7 +51,6 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            print("esc");
             if (!paused)
             {
                 Pause();
@@ -61,13 +60,6 @@ public class GameManager : MonoBehaviour
                 UnPause();
             }
         }
-
-        /*if(!playerAlive)
-        {
-            ShowGameOverPanel();
-        }*/
-
-        //if has Stone or similar { ShowWinPanel();}
     }
 
     public void UnPause()
@@ -75,12 +67,10 @@ public class GameManager : MonoBehaviour
         paused = false;
         pausePanel.SetActive(false);
         Time.timeScale = 1f;
-        print("un paused");
     }
 
     public void Pause()
     {
-        print("paused");
         paused = true;
         pausePanel.SetActive(true);
         Time.timeScale = 0f;

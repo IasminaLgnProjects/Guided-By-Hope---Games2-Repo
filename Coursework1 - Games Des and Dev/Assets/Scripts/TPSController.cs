@@ -6,7 +6,7 @@ public class TPSController : MonoBehaviour
 {
     [SerializeField] CharacterController controller;
     [SerializeField] Transform groundCheck;
-    [SerializeField] LayerMask groundMask; //to differenciate what things are on the ground 
+    [SerializeField] LayerMask groundMask; 
     Animator animator;
 
     //Input variables
@@ -22,50 +22,44 @@ public class TPSController : MonoBehaviour
     Vector3 velocity;
     float moveSpeed = 10f;
     float jumpHeight = 0.5f;
-    float gravity = -9.81f; //we don't define this as a rigid body, we do everything through the Character Controller component
+    float gravity = -9.81f; 
     float grounDistance = 0.3f;
     bool isGrounded; 
-    bool jumpTrigger; //true when the player is jumping
+    bool jumpTrigger; 
 
-    // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Inputs();
-        CheckIfGrounded(); //we apply gravity first
-        CheckJumpTrigger(); //we need to call this before the ApplyMovement
+        CheckIfGrounded(); 
+        CheckJumpTrigger(); 
         ApplyMouseDirection();
         ApplyMovement();
-        //print("mouseX " + mouseX + " ,mouseY " + mouseY + " ,horzAxis " + horzAxis + " ,vertAxis " + vertAxis + " ,jumpTrigger " + jumpTrigger);
-        //print("isGrounded " + isGrounded + ", jumpTrigger " + jumpTrigger);
-        //print("velocity.y is " + velocity.y);
-        //print("Time.deltaTime is " + Time.deltaTime);
     }
 
     void Inputs()
     {
         mouseX = Input.GetAxis("Mouse X");
         mouseY = Input.GetAxis("Mouse Y");
-        horzAxis = Input.GetAxis("Horizontal"); //keyboard or joypad setup
+        horzAxis = Input.GetAxis("Horizontal");
         vertAxis = Input.GetAxis("Vertical");
-        jumpTrigger = Input.GetButtonDown("Jump"); //space
+        jumpTrigger = Input.GetButtonDown("Jump");
     }
 
-    void CheckIfGrounded() //also applies gravity
+    void CheckIfGrounded()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, grounDistance, groundMask);
         if(isGrounded == true && velocity.y < 0f)
         {
-            velocity.y = 0f; //does not let it keep falling through the ground
+            velocity.y = 0f;
         }
         else if(isGrounded == false)
         {
-            velocity.y += gravity * Time.deltaTime; //the gravity is negative so the velocity is negative - the player is falling
+            velocity.y += gravity * Time.deltaTime;
         }
     }
 
@@ -92,12 +86,10 @@ public class TPSController : MonoBehaviour
         //look up and down based on mouse input
         rotationY -= mouseY * mouseSensitivity * Time.deltaTime;
         rotationY = Mathf.Clamp(rotationY, -90f, 90f);
-        //playerCamera.transform.localRotation = Quaternion.Euler(rotationY, 0f, 0f);
 
         //look left and right based on mouse input
         rotationX = mouseX * mouseSensitivity * Time.deltaTime;
         transform.Rotate(Vector3.up * rotationX); 
-        //we use this to rotate the entire player controller, not just the camera
     }
 
     void ApplyMovement ()
@@ -108,7 +100,5 @@ public class TPSController : MonoBehaviour
 
         animator.SetBool("walkingBackTrigger", Input.GetKey(KeyCode.S));
         animator.SetBool("walkingTrigger", Input.GetKey(KeyCode.W));
-        
-        //animator.SetBool("throwTrigger", Input.GetKey(KeyCode.E));
     }
 }

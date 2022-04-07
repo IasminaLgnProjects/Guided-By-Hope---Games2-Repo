@@ -15,11 +15,8 @@ public class ColliderDetector : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //print("collision");
-        //print(other.gameObject.name);
         if (other.gameObject.tag == "Axe")
         {
-            //print("axe hit");
             axeCollided = true;
         }
     }

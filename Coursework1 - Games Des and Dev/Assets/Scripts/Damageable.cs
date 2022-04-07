@@ -5,8 +5,7 @@ using UnityEngine.AI;
 
 public class Damageable : MonoBehaviour
 {
-    [SerializeField] float health; //delete ser
-    SoundManager SoundManagerScript; 
+    private float health = 100; 
     WitchPatrol WitchPatrolScript;
     Animator witchAnimator;
     Collider witchCollider;
@@ -17,7 +16,6 @@ public class Damageable : MonoBehaviour
 
     void Start()
     {
-        SoundManagerScript = GameObject.Find("TheSoundManager").GetComponent<SoundManager>();
         WitchPatrolScript = gameObject.GetComponent<WitchPatrol>();
         witchAnimator = gameObject.GetComponent<Animator>();
         witchCollider = gameObject.GetComponent<Collider>();
@@ -32,13 +30,12 @@ public class Damageable : MonoBehaviour
         {
             if (ColliderDetectorScript.getAxeCollided)
             {
-                //print("axe collided");
                 DealDamage(100);
             }
 
             if (health <= 0)
             {
-                PlaySound();
+                FindObjectOfType<SoundManager>().PlayAudio("WitchDeath");
                 KillEnemy();
 
                 yield return new WaitForSeconds(10f);
@@ -52,19 +49,6 @@ public class Damageable : MonoBehaviour
     public void DealDamage(float damageAmount)
     {
         health = health - damageAmount;
-    }
-
-    void PlaySound()
-    {
-        if (gameObject.tag == "Witch")
-        {
-            //SoundManagerScript.AudioWitchDeath();
-            FindObjectOfType<SoundManager>().PlayAudio("WitchDeath");
-        }
-        /*else if (gameObject.tag == "Troll")
-        {
-            SoundManagerScript.AudioTrollDeath();
-        }*/
     }
 
     void KillEnemy()

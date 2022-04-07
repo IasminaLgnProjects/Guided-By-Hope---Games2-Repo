@@ -15,13 +15,12 @@ public class HealthCanvas : MonoBehaviour
         if (player != null)
         {
             playerHealthScript = player.GetComponent<PlayerHealth>();
-            slider.value = playerHealthScript.GetPlayerHealth();
+            slider.value = playerHealthScript.GetPlayerHealth;
         }
     }
 
-    private void LateUpdate() //late update because the player takes damage in Update
+    private void LateUpdate() //LateUpdate because the player takes damage in Update
     {
-        slider.value = playerHealthScript.GetPlayerHealth();
-        //print("Slider value is " + slider.value);
+        slider.value = playerHealthScript.GetPlayerHealth;
     }
 }

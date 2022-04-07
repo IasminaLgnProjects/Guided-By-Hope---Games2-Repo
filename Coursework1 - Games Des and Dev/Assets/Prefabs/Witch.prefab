@@ -826,7 +826,6 @@ GameObject:
   - component: {fileID: 1616453068529226597}
   - component: {fileID: 1616453068529226592}
   - component: {fileID: 1616453068529226598}
-  - component: {fileID: 1616453068529226599}
   - component: {fileID: 1616453068529226596}
   - component: {fileID: 1616453068529226594}
   - component: {fileID: 1616453068529226606}
@@ -922,18 +921,6 @@ MonoBehaviour:
   speed: 0.5
   reachTargetRange: 2
   currentWaypoint: 0
---- !u!114 &1616453068529226599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1922934036922051572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69fa923a517824e4a873569a55e2ef14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1616453068529226596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -948,7 +935,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwSpeed: 20
   potion: {fileID: 3854393461321277227, guid: dcb7fbece608c2948acb3b361467e668, type: 3}
-  canShoot: 0
   anim: {fileID: 0}
 --- !u!195 &1616453068529226594
 NavMeshAgent:
@@ -984,7 +970,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c08bf47789e0d844eb3a2d05c55cc7dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
   ColliderDetectorScript: {fileID: 1616453068512497794}
 --- !u!1 &1934069150276704762
 GameObject:

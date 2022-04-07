@@ -4,38 +4,36 @@ using UnityEngine;
 
 public class Potion : MonoBehaviour
 {
-    [SerializeField] int damageAmount;
-    Damageable DamageableScript; //you might want this to be the PLAYER HEALTH 
+    private int damageAmount = 20;
     PlayerHealth PlayerHealthScript;
-    //[SerializeField] GameObject SoundManager; //delete serial
-    [SerializeField] SoundManager SoundManagerScript; //delete serial
-
-    void Start()
-    {
-        //SoundManager = GameObject.Find("TheSoundManager");
-        SoundManagerScript = GameObject.Find("TheSoundManager").GetComponent<SoundManager>();
-    }
 
     void OnTriggerEnter(Collider collision)
     {
-        //print(collision.gameObject.name);
         if(collision.gameObject.tag == "Player")
         {
-            print("player hit");
             PlayerHealthScript = collision.GetComponent<PlayerHealth>();
             if (PlayerHealthScript != null)
             {
-                //          SoundManagerScript.AudioPotionBreak(); 
                 FindObjectOfType<SoundManager>().PlayAudio("PotionBreak");
+                FindObjectOfType<SoundManager>().PlayAudio("PlayerHit");
                 PlayerHealthScript.TakeDamage(damageAmount);
-                
-                //DamageableScript.DealDamage(damageAmount);
             }
             Destroy(gameObject);
         }
         else
         {
-            //Invoke Destroy after few seconds !!!!!!
+            StartCoroutine(DestroyObject());
+        }
+    }
+
+    IEnumerator DestroyObject()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(10f);
+            Destroy(gameObject);
+
+            yield return null;
         }
     }
 }

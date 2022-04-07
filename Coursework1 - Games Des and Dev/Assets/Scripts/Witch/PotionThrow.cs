@@ -6,7 +6,7 @@ public class PotionThrow : MonoBehaviour
 {
     [SerializeField] float throwSpeed = 20f;
     [SerializeField] Rigidbody potion;
-    [SerializeField] bool canShoot;
+    bool canShoot;
 
     WitchPatrol WPatrolScript;
     public Animator anim;
@@ -18,26 +18,20 @@ public class PotionThrow : MonoBehaviour
         canShoot = true;
 
         StartCoroutine(MyCoroutine());
-        print(WPatrolScript.getThrowPotion);
     }
 
     IEnumerator MyCoroutine()
     {
-        //print(WPatrolScript.getThrowPotion);
         while (true)
         {
-            //print(WPatrolScript.getThrowPotion);
             if (WPatrolScript.getThrowPotion)
             {
-                //print("canShoot is " + canShoot);
                 if (!canShoot)
                 {
-                    //print("can NOT shoot");
                     yield return new WaitForSeconds(2f);
                 }
                 else
                 {
-                    //print("can shoot");
                     anim.SetBool("Throwing", true);
 
                     yield return new WaitForSeconds(1.5f); //wait to align animation
