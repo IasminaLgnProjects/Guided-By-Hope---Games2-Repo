@@ -58,7 +58,8 @@ public class Damageable : MonoBehaviour
     {
         if (gameObject.tag == "Witch")
         {
-            SoundManagerScript.AudioWitchDeath();
+            //SoundManagerScript.AudioWitchDeath();
+            FindObjectOfType<SoundManager>().PlayAudio("WitchDeath");
         }
         /*else if (gameObject.tag == "Troll")
         {

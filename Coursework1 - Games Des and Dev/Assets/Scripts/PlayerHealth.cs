@@ -37,7 +37,7 @@ public class PlayerHealth : MonoBehaviour
         //replace it with a rig 
         //make sound 
 
-        SoundManagerScript.AudioPlayerDeath();
+        //           SoundManagerScript.AudioPlayerDeath();
         PlayerFallingScript.DeactivateAnimator();
         //playerAnimator.enabled = false;
         Invoke("StopGame", 4f);

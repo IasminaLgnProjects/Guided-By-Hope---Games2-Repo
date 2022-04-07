@@ -25,8 +25,8 @@ public class Potion : MonoBehaviour
             PlayerHealthScript = collision.GetComponent<PlayerHealth>();
             if (PlayerHealthScript != null)
             {
-                //SoundManager.GetComponent<SoundManager>().AudioPotionBreak(); //this is actually for the AXE HIT
-                SoundManagerScript.AudioPotionBreak(); 
+                //          SoundManagerScript.AudioPotionBreak(); 
+                FindObjectOfType<SoundManager>().PlayAudio("PotionBreak");
                 PlayerHealthScript.TakeDamage(damageAmount);
                 
                 //DamageableScript.DealDamage(damageAmount);
